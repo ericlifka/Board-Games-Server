@@ -1,0 +1,21 @@
+stitch = require('stitch')
+fs = require('fs')
+
+getStitchPackage = () ->
+    stitch.createPackage {
+        paths: [__dirname]
+        dependencies: [
+            # __dirname + '/lib/jquery.js'
+        ]
+    }
+
+compileProjectWithStitchPackage = (package) ->
+    package.compile (err, source) ->
+        fs.writeFileSync '../js/application.js', source
+
+build = () ->
+    package = getStitchPackage()
+    compileProjectWithStitchPackage(package)
+
+task 'build', 'Build application with Stitch', ->
+    build()

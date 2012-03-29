@@ -1,0 +1,8 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "dependencies": {
+        "coffee-script": "~1.1.2",
+        "stitch": "~0.3.2"
+    }
+}
